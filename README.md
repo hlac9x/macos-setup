@@ -91,8 +91,6 @@ After installation completes, reboot your system to ensure all changes take effe
 - `make` or `make build`: Full installation and system rebuild
 - `make update`: Update all packages (Nix flakes and Homebrew)
 - `make rosetta`: Install Rosetta 2 (for Apple Silicon Macs)
-- `make add-cron-job`: Add automated backup job
-- `make remove-cron-job`: Remove automated backup job
 
 ## Configuration Profiles
 
