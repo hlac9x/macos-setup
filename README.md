@@ -77,7 +77,7 @@ Before installation, update the configuration files with your details:
 ### 3. Install
 
 ```bash
-git clone https://github.com/hlac9x/macos-setup-public macos-setup
+git clone https://github.com/hlac9x/macos-setup
 cd macos-setup
 make
 ```
