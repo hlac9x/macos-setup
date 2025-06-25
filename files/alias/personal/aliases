@@ -1,0 +1,47 @@
+
+alias onedrive="cd /Users/hlac/Library/CloudStorage/OneDrive-Personal"
+#Show Current Puclis IP
+alias myip='curl -4 -s http://ipecho.net/plain; echo'
+
+############################### CUSTOM ###############################
+alias upwork="cd /Users/hoan.lac/Library/CloudStorage/OneDrive-Personal/Hoan\'s\ Data/Company/Upwork"
+alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm chenzj/dfimage"
+alias vang='curl -s https://sjc.com.vn/giavang/textContent.php | rg -A2 10L | rg -o ".{0,6},000<" | sed "s/<//g"'
+
+#Edit aliases file
+alias aliases='cursor ~/.aliases'
+alias awsconfig="cursor ~/.aws/credentials"
+alias sshconfig='cursor ~/.ssh'
+
+alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+############################### ZSH ###############################
+
+alias zshconfig='cursor ~/.zshrc'
+alias reload="source $HOME/.zshrc"
+alias v="nvim"
+alias c="cursor"
+
+############################### TERRAFORM ###############################
+alias tf="terraform"
+
+############################### TERRAGRUNT ###############################
+alias tg="terragrunt"
+alias tgc="find . -type d -name ".terragrunt-cache" -prune -exec rm -rf {} \; && find . -type f -name ".terraform.lock.hcl" -prune -exec rm -rf {} \; "
+
+############################### K8S ###############################
+alias kx="kubectx"
+alias kubeconfig='cursor ~/.kube'
+alias kubectl="kubecolor"
+
+############################### GIT ###############################
+alias g='git'
+alias ga='git add .'
+alias gb='git branch'
+alias gp='git pull'
+alias gps='git push'
+alias gc='git commit -m'
+alias gc='git checkout'
+alias gcb='git checkout -b'
+alias gcm='git checkout master'
+alias gm='git merge'
+alias glog='git log --oneline --decorate --graph'

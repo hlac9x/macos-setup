@@ -1,0 +1,26 @@
+[init]
+  defaultBranch = main
+[core]
+	excludesfile = /Users/hoan.lac/.gitignore_global
+[commit]
+	template = /Users/hoan.lac/.stCommitMsg
+	gpgsign = true
+[user]
+	name = Hoan Lac
+	useConfigOnly = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[push]
+	autoSetupRemote = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[include]
+  path = ~/.config/git/config.work
+[includeIf "gitdir:~/macos-setup/"]
+  path = ~/.config/git/config.personal
+

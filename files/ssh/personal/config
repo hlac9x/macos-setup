@@ -1,0 +1,11 @@
+Include ~/.orbstack/ssh/config
+
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+#Github - hoan.lac@outlook.com
+Host github.com-hoan
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/hoan-github.pub
+   IdentitiesOnly yes

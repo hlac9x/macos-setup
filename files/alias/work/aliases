@@ -1,0 +1,68 @@
+
+alias onedrive="cd /Users/hlac/Library/CloudStorage/OneDrive-Personal"
+#Show Current Puclis IP
+alias myip='curl -4 -s http://ipecho.net/plain; echo'
+
+############################### CUSTOM ###############################
+alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm chenzj/dfimage"
+
+#Edit aliases file
+alias aliases='cursor ~/.aliases'
+alias awsconfig="cursor ~/.aws/credentials"
+alias sshconfig='cursor ~/.ssh'
+
+alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+############################### ZSH ###############################
+
+alias zshconfig='cursor ~/.zshrc'
+alias reload="source $HOME/.zshrc"
+alias v="nvim"
+alias c="cursor"
+
+############################### TERRAFORM ###############################
+alias tf="terraform"
+alias tgc="find . -type d -name .terragrunt-cache -prune -exec rm -rf {} \; && find . -type f -name .terraform.lock.hcl -prune -exec rm -rf {} \;"
+
+############################### K8S ###############################
+alias kx="kubectx"
+alias kubeconfig='cursor ~/.kube'
+
+############################### GIT ###############################
+alias g='git'
+alias ga='git add .'
+alias gb='git branch'
+alias gp='git pull'
+alias gps='git push'
+alias gc='git commit -m'
+alias gc='git checkout'
+alias gcb='git checkout -b'
+alias gcm='git checkout master'
+alias gm='git merge'
+alias glog='git log --oneline --decorate --graph'
+
+
+stop_dns_hell() {
+  sudo launchctl unload /Library/LaunchDaemons/com.greenboxal.dnsheaven.plist
+  sudo rm -f /etc/resolv.conf
+  sudo ln -s /var/run/resolv.conf /etc/resolv.conf
+}
+
+start_dns_hell() {
+  sudo rm -f /etc/resolv.conf
+  sudo launchctl load /Library/LaunchDaemons/com.greenboxal.dnsheaven.plist
+}
+
+### Nix Shell
+alias nix-shell='nix-shell ~/shell.nix --command zsh'
+
+############################### AWS ###############################
+awslogin() {
+  if [ -z "$1" ]; then
+    echo "Usage: awslogin <profile-name>"
+    return 1
+  fi
+  export AWS_PROFILE="$1"
+  echo "Setting AWS_PROFILE to '$AWS_PROFILE'"
+  aws sso login
+  aws sts get-caller-identity
+}
