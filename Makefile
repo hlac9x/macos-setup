@@ -24,22 +24,3 @@ update:
 
 rosetta:
 	sudo softwareupdate --install-rosetta --agree-to-license
-
-####RSYNC#####
-# Define the rsync command
-RSYNC_CMD = rsync -avz ~/.zsh_history "/Users/hoanlac/OneDrive/Hoan's Data/history/zsh_history"
-
-# Define the cron job entry
-CRON_JOB = "*/5 * * * * $(RSYNC_CMD)"
-
-# Target to add the cron job
-add-cron-job:
-	@echo Adding cron job to run every 5 minutes...
-	@(crontab -l ; echo $(CRON_JOB)) | crontab -
-	@echo Cron job added successfully.
-
-# Target to remove the cron job
-remove-cron-job:
-	@echo Removing the cron job...
-	@crontab -l | grep -v "$(RSYNC_CMD)" | crontab -
-	@echo Cron job removed successfully.
